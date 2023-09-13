@@ -1,9 +1,6 @@
 name: Test Build
 
-on:
-  workflow_dispatch:
-  release:
-    types: [published]
+on: [push]
 
 jobs:
   build:
