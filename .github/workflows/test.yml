@@ -15,11 +15,8 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-      - name: Ls
-        run: ls
-
       - name: Install Dep
-        run: sudo apt build-dep ./ -y
+        run: sudo apt-get -y install debhelper cmake qt5-qmake qtbase5-dev qttools5-dev qttools5-dev-tools lxqt-build-tools(>= .6.0~) libssl-dev llvm(>=1:7~) llvm-dev(>=1:7~) libclang-dev(>=1:7~) libutf8proc-dev libmicrohttpd-dev libjsoncpp-dev libargtable2-dev libhiredis-dev catch libzstd-dev libjson-c-dev libelf-dev libcapstone-dev libunwind-dev libelfin-dev libdbus-1-dev libxi-dev qtscript5-dev libqt5scripttools5 clang doxygen
 
       - name: Build
         run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release & cmake --build build
