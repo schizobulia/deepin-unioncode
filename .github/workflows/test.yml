@@ -15,8 +15,11 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+      - name: Ls
+        run: ls
+
       - name: Install Dep
-        run: sudo apt build-dep ./
+        run: sudo apt build-dep ./ -y
 
       - name: Build
         run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release & cmake --build build
