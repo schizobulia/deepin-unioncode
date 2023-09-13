@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get -y install debhelper cmake qt5-qmake qtbase5-dev qttools5-dev qttools5-dev-tools lxqt-build-tools libssl-dev llvm llvm-dev libclang-dev libutf8proc-dev libmicrohttpd-dev libjsoncpp-dev libargtable2-dev libhiredis-dev catch libzstd-dev libjson-c-dev libelf-dev libcapstone-dev libunwind-dev libelfin-dev libdbus-1-dev libxi-dev qtscript5-dev libqt5scripttools5 clang doxygen cmake make gdb g++ gcc git npm
 
       - name: Build 1
-        run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
+        run: cd ../ & cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
 
       - name: Build 2
         run: cmake --build build
