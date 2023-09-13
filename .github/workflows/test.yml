@@ -1,0 +1,29 @@
+name: Test Build
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Deepin-Unioncode ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Install Dep
+        run: sudo apt build-dep ./
+
+      - name: Build
+        run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
+        run: cmake --build build
+      
+      - name: Install App
+        run: sudo cmake --build build --target install
