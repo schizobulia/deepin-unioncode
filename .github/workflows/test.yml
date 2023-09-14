@@ -17,12 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dep
-        run: sudo apt -y build-dep ./
+        run: sudo apt-get update & sudo apt-get upgrade & sudo apt -y build-dep ./
 
-      - name: Build 1
+      - name: Set Build Env
         run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
 
-      - name: Build 2
+      - name: Build
         run: cmake --build build
       
       - name: Install App
