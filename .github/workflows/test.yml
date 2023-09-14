@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dep
-        run: sudo apt-get update & sudo apt-get upgrade & sudo apt -y build-dep ./
+        run: sudo apt-get -y install libunwind-dev & sudo apt -y build-dep ./
 
       - name: Set Build Env
         run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
